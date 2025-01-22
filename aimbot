@@ -1,16 +1,23 @@
---// Cache
+local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/Markito04957/Model/refs/heads/main/Main"))()
+local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/Markito04957/Model/refs/heads/main/Addons/SaveManager.lua"))()
+local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/Markito04957/Model/refs/heads/main/Addons/InterfaceManager.lua"))()
 
-local loadstring, game, getgenv, setclipboard = loadstring, game, getgenv, setclipboard
+local Window = Fluent:CreateWindow({
+    Title = "Fluent " .. Fluent.Version,
+    SubTitle = "by dawid",
+    TabWidth = 160,
+    Size = UDim2.fromOffset(580, 460),
+    Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely
+    Theme = "Dark",
+    MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind
+})
 
---// Loaded check
-
-if getgenv().Aimbot then return end
-
---// Load Aimbot V2 (Raw)
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/Aimbot-V2/main/Resources/Scripts/Raw%20Main.lua"))()
-
---// Variables
+--Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs, icons are optional
+local Tabs = {
+    Main = Window:AddTab({ Title = "Main", Icon = "" }),
+    Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
+}
+--Script normal
 
 local Aimbot = getgenv().Aimbot
 local Settings, FOVSettings, Functions = Aimbot.Settings, Aimbot.FOVSettings, Aimbot.Functions
